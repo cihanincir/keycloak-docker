@@ -16,9 +16,6 @@ ARG KC_DB_POOL_MIN_SIZE
 COPY custom-providers/*.jar /opt/keycloak/providers/
 COPY /theme/keywind /opt/keycloak/themes/keywind
 
-# Keycloak yapılandırmasını doğru log seviyesinde ayarlıyoruz
-ENV KC_LOG_LEVEL=debug  # Veya ihtiyacınıza göre 'info' ya da 'warn' olabilir
-
 # Keycloak'ı build ediyoruz
 RUN /opt/keycloak/bin/kc.sh build
 
