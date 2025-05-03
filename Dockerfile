@@ -21,9 +21,6 @@ RUN /opt/keycloak/bin/kc.sh build
 # Güvenlik konfigürasyon dosyasını kopyalıyoruz
 COPY java.config /etc/crypto-policies/back-ends/java.config
 
-# Builder aşamasından keycloak dosyalarını alıyoruz
-COPY --from=builder /opt/keycloak/ /opt/keycloak/
-
 # Keycloak'ı başlatmak için giriş komutunu tanımlıyoruz
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
 
