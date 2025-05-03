@@ -14,13 +14,9 @@ ARG KC_DB_POOL_MIN_SIZE
 
 # Keycloak temalarınızın ve custom provider dosyalarınızı kopyalıyoruz
 COPY custom-providers/*.jar /opt/keycloak/providers/
-COPY /theme/keywind /opt/keycloak/themes/keywind
 
 # Keycloak'ı build ediyoruz
 RUN /opt/keycloak/bin/kc.sh build
-
-# Ana imaj olarak son sürümü alıyoruz
-FROM quay.io/keycloak/keycloak:latest
 
 # Güvenlik konfigürasyon dosyasını kopyalıyoruz
 COPY java.config /etc/crypto-policies/back-ends/java.config
